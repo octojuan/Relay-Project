@@ -1,11 +1,11 @@
 :root {
-  --cream: #fdf6f0;
-  --cream-deep: #f7e9df;
-  --salmon: #c96a4f;
-  --salmon-soft: #d98a6f;
-  --ink: #2a211d;
-  --ink-soft: #5c4f49;
-  --line: rgba(201, 106, 79, 0.35);
+  --cream: #eef5fb;
+  --cream-deep: #dcebf6;
+  --salmon: #3f7cb0;
+  --salmon-soft: #6fa3cf;
+  --ink: #1f2e3d;
+  --ink-soft: #52697d;
+  --line: rgba(63, 124, 176, 0.3);
   --mono: "IBM Plex Mono", monospace;
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -13,19 +13,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --cream: #211a17;
-    --cream-deep: #2b221d;
-    --ink: #f3e9e2;
-    --ink-soft: #cbb9b0;
-    --line: rgba(216, 138, 111, 0.35);
+    --cream: #161f29;
+    --cream-deep: #1d2834;
+    --ink: #e6eef6;
+    --ink-soft: #a9bdce;
+    --line: rgba(111, 163, 207, 0.35);
   }
 }
 :root[data-theme="dark"] {
-  --cream: #211a17;
-  --cream-deep: #2b221d;
-  --ink: #f3e9e2;
-  --ink-soft: #cbb9b0;
-  --line: rgba(216, 138, 111, 0.35);
+  --cream: #161f29;
+  --cream-deep: #1d2834;
+  --ink: #e6eef6;
+  --ink-soft: #a9bdce;
+  --line: rgba(111, 163, 207, 0.35);
 }
 
 * { box-sizing: border-box; }
@@ -42,8 +42,8 @@ html, body {
 body {
   background-image:
     radial-gradient(circle at 20% 15%, var(--cream-deep) 0%, transparent 55%),
-    repeating-linear-gradient(0deg, rgba(201,106,79,0.05) 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(90deg, rgba(201,106,79,0.05) 0 1px, transparent 1px 48px);
+    repeating-linear-gradient(0deg, rgba(63,124,176,0.06) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(63,124,176,0.06) 0 1px, transparent 1px 48px);
 }
 
 .topbar {

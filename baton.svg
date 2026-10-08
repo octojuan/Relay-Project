@@ -1,38 +1,54 @@
-<svg viewBox="0 0 1200 160" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="batonGrad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#e8a98d"/>
-      <stop offset="100%" stop-color="#c96a4f"/>
-    </linearGradient>
+    <radialGradient id="ballGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#9fc7ea"/>
+      <stop offset="100%" stop-color="#3f7cb0"/>
+    </radialGradient>
     <radialGradient id="dotGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#c96a4f" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#c96a4f" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#4caf7d" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#4caf7d" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <!-- jagged pulse track, same motif as the reference line -->
-  <path d="M0,80 L260,80 L300,20 L340,140 L380,80 L760,80 L800,30 L840,130 L880,80 L1200,80"
-        fill="none" stroke="#c96a4f" stroke-width="2" opacity="0.35"/>
+  <!-- oval track -->
+  <ellipse cx="450" cy="150" rx="380" ry="110" fill="none" stroke="#3f7cb0" stroke-width="2" stroke-dasharray="2 10" opacity="0.4"/>
 
-  <!-- two stop points on the line -->
-  <circle cx="190" cy="80" r="7" fill="#c96a4f"/>
-  <circle cx="1010" cy="80" r="7" fill="#c96a4f"/>
-  <circle cx="190" cy="80" r="16" fill="url(#dotGlow)"/>
-  <circle cx="1010" cy="80" r="16" fill="url(#dotGlow)"/>
+  <!-- four green stop dots, evenly spaced -->
+  <circle cx="450" cy="40" r="18" fill="url(#dotGlow)"/>
+  <circle cx="450" cy="40" r="9" fill="#4caf7d"/>
+
+  <circle cx="830" cy="150" r="18" fill="url(#dotGlow)"/>
+  <circle cx="830" cy="150" r="9" fill="#4caf7d"/>
+
+  <circle cx="450" cy="260" r="18" fill="url(#dotGlow)"/>
+  <circle cx="450" cy="260" r="9" fill="#4caf7d"/>
+
+  <circle cx="70" cy="150" r="18" fill="url(#dotGlow)"/>
+  <circle cx="70" cy="150" r="9" fill="#4caf7d"/>
 
   <!--
-    Baton travels left stop -> right stop and back, pausing 2.5s at each end.
-    Total loop 11s: pause 0-2.5 (0.227), travel 2.5-5.5 (0.5), pause 5.5-8 (0.727), travel 8-11 (1.0)
+    Full loop = 24s: four 2s dwells (8s) + four 4s travel legs (16s).
+    keyTimes fractions of 24s:
+      dwell at top:    0    -> 0.0833  (0-2s)
+      travel to right: 0.0833 -> 0.25   (2-6s)
+      dwell at right:  0.25 -> 0.3333  (6-8s)
+      travel to bottom:0.3333 -> 0.5    (8-12s)
+      dwell at bottom: 0.5 -> 0.5833   (12-14s)
+      travel to left:  0.5833 -> 0.75  (14-18s)
+      dwell at left:   0.75 -> 0.8333  (18-20s)
+      travel to top:   0.8333 -> 1.0   (20-24s)
   -->
   <g>
     <animateMotion
-      dur="11s" repeatCount="indefinite"
-      keyPoints="0;0;1;1;0"
-      keyTimes="0;0.227;0.5;0.727;1"
+      dur="24s" repeatCount="indefinite"
+      keyPoints="0;    0;      0.25; 0.25;   0.5;  0.5;    0.75; 0.75;   1"
+      keyTimes="0;    0.0833; 0.25; 0.3333; 0.5;  0.5833; 0.75; 0.8333; 1"
       calcMode="linear"
-      path="M190,80 L1010,80"/>
-    <rect x="-22" y="-5" width="44" height="10" rx="5" fill="url(#batonGrad)"/>
-    <circle cx="-22" cy="0" r="7" fill="#e8a98d"/>
-    <circle cx="22" cy="0" r="7" fill="#e8a98d"/>
+      path="M 450,40
+            A 380,110 0 0 1 830,150
+            A 380,110 0 0 1 450,260
+            A 380,110 0 0 1 70,150
+            A 380,110 0 0 1 450,40 Z"/>
+    <circle cx="0" cy="0" r="22" fill="url(#ballGrad)"/>
   </g>
 </svg>
